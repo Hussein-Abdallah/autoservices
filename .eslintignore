@@ -1,0 +1,16 @@
+# Ignore the node_modules folder
+node_modules
+backend/node_modules
+frontend/node_modules
+
+# Ignore the build folder
+frontend/build
+
+# Ignore the .env file
+backend/.env
+
+# Ignore the .env file
+frontend/.env
+
+# Ignore the .env file
+.env

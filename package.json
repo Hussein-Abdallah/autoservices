@@ -1,0 +1,22 @@
+{
+  "name": "autoservices",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "The goal of this project is to develop a website application that enables users to book tire change and detailing services for their vehicles. The application will provide a user-friendly interface where users can easily schedule appointments, select service options, and make payments.",
+  "author": "Hussein Abdallah",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "lint": "npm run lint:eslint",
+    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "fix:prettier": "prettier . --write"
+  },
+  "devDependencies": {
+    "@shopify/eslint-plugin": "^42.1.0",
+    "@shopify/prettier-config": "^1.1.2",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.43.0",
+    "prettier": "^2.8.8"
+  },
+  "dependencies": {}
+}
