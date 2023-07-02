@@ -230,6 +230,12 @@ CREATE TABLE AutoServicesSchema.SupportLinks(
 );
 GO
 
+CREATE TABLE AutoServicesSchema.Newsletter(
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    Email NVARCHAR(100)
+);
+GO
+
 CREATE TABLE AutoServicesSchema.ErrorLog (
     ErrorLogId INT IDENTITY(1, 1) PRIMARY KEY,
     ErrorMessage NVARCHAR(MAX),
