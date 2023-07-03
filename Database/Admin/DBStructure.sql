@@ -74,11 +74,12 @@ GO
 CREATE TABLE AutoServicesSchema.ServiceCard(
     CardId INT IDENTITY(1,1) PRIMARY KEY,
     ServiceSectionId INT,
-    Icon NVARCHAR(50),
+    IconId INT,
     Price DECIMAL(6,2),
     Title NVARCHAR(50),
     Summary NVARCHAR(150),
-    FOREIGN KEY(ServiceSectionId) REFERENCES AutoServicesSchema.ServiceSection(ServiceSectionId) ON DELETE CASCADE
+    FOREIGN KEY(ServiceSectionId) REFERENCES AutoServicesSchema.ServiceSection(ServiceSectionId) ON DELETE CASCADE,
+    FOREIGN KEY (IconId) REFERENCES AutoServicesSchema.Icons(IconId)
 );
 GO
 
