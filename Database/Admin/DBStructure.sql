@@ -183,23 +183,20 @@ GO
 
 CREATE TABLE AutoServicesSchema.Accordion(
     AccordionId INT IDENTITY(1,1) PRIMARY KEY,
-    InformationSectionId INT,
     Question NVARCHAR(200),
     Answer NVARCHAR(400),
-    FOREIGN KEY (InformationSectionId) REFERENCES AutoServicesSchema.InformationSection(InformationSectionId) ON DELETE CASCADE
+    IsInHomePage BIT
 );
 GO
 
 CREATE TABLE AutoServicesSchema.Blog(
     BlogId INT IDENTITY(1,1) PRIMARY KEY,
-    InformationSectionId INT,
     ImageUrl NVARCHAR(100),
     Title NVARCHAR(100),
     Summary NVARCHAR(250),
     Content NVARCHAR(MAX),
     CreatedAt DATETIME,
-    Author NVARCHAR(100),
-    FOREIGN KEY (InformationSectionId) REFERENCES AutoServicesSchema.InformationSection(InformationSectionId)
+    Author NVARCHAR(100)
 );
 GO
 
