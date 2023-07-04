@@ -73,7 +73,6 @@ BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
 
-        -- Get the OrderSequence of the banner being deleted
         DECLARE @DeletedOrderSequence INT;
         DECLARE @ContainerId INT;
 
@@ -84,14 +83,12 @@ BEGIN
                     ON SectionsConfig.ContainerId = HeroSection.ContainerId
             WHERE HeroSection.HeroSectionId = @HeroSectionId;
 
-        -- Delete the banner from Banner table
+
         DELETE FROM AutoServicesSchema.HeroSection
         WHERE HeroSectionId = @HeroSectionId;
 
-        -- Delete the record from SectionsConfig
         EXEC AutoServicesSchema.spSectionsConfig_Delete @ContainerId = @ContainerId;
 
-        -- Adjust the sequence order for remaining banners
         EXEC AutoServicesSchema.spSectionsConfig_AdjustSequenceOrder @DeletedOrderSequence;
 
         COMMIT;
@@ -103,7 +100,7 @@ BEGIN
         INSERT INTO AutoServicesSchema.ErrorLog (ErrorMessage, ErrorNumber, ProcedureName, LogTimestamp)
             VALUES (ERROR_MESSAGE(), ERROR_NUMBER(), 'AutoServicesSchema.spHeroSection_Delete', GETDATE());
 
-        THROW 50004, 'An error occurred while deleting the banner. Please try again or contact support.', 1;
+        THROW 50004, 'An error occurred while deleting the Hero section. Please try again or contact support.', 1;
     END CATCH;
 END;
 GO
